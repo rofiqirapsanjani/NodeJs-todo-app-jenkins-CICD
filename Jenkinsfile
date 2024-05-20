@@ -19,7 +19,7 @@ pipeline {
                 sh "docker push ${env.dockerHubUser}/node-app-test-new:latest"
                 }
             }
-        // }
+        }
         // stage("Deploy"){
         //     steps{
         //         sh "docker-compose down && docker-compose up -d"
