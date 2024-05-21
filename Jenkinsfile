@@ -22,7 +22,7 @@ pipeline {
         }
         stage("Deploy"){
             steps{
-                sh "docker-compose up -d"
+                sh "docker run -p 8000:8000 ${env.dockerHubUser}/node-app-test-new:${BUILD_NUMBER}"
             }
         }
     }
