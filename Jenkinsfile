@@ -8,7 +8,7 @@ pipeline {
         }
         stage("Build and Test"){
             steps{
-                sh "docker build -t node-app-test-new ."
+                sh "bash build.sh"
             }
         }
         stage("Push to Docker Hub"){
@@ -20,10 +20,10 @@ pipeline {
                 }
             }
         }
-        // stage("Deploy"){
-        //     steps{
-        //         sh "docker-compose down && docker-compose up -d"
-        //     }
-        // }
+        stage("Deploy"){
+            steps{
+                sh "docker-compose up -d"
+            }
+        }
     }
 }
